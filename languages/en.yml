@@ -1,0 +1,87 @@
+questions:
+  error:
+    audio_player: Your browser does not support the audio element.
+
+  first_task:
+    song: song
+    main: After listening to the two songs, move the cursor to the one that best matches the text below. The cursor indicates a gradual decoration, if placed at the extremes it indicates a clear decoration, if placed in the middle it indicates that there is no decoration between the first or second song
+    labels:
+      - label: sweet music
+        id: 0
+      - label: salty music
+        id: 1
+      - label: bitter music
+        id: 2
+      - label: sour music
+        id: 3
+
+  second_task:
+    main: Choose an intensity indicating how much you recognize each of the following adjectives in the piece of music you listened to
+    scale:
+      - Not at all
+      - A little
+      - Quite a bit
+      - A lot
+      - Very much
+    adjectives:
+      - salty
+      - sweet
+      - sour
+      - bitter
+      - happiness
+      - sadness
+      - anger
+      - disgust
+      - fear
+      - surprise
+      - warm
+      - cold
+
+  demographics:
+    ethnicity: How do you identify?
+    age: What is your age?
+    gender: What is your gender?
+    expertise:
+      hearing: What is your level of musical hearing expertise?
+      tasting: What is your level of experience in the food and wine industry?
+    impairments:
+      hearing: Are you aware of having any hearing problem?
+      tasting: Are you aware of having any trouble recognizing tastes and/or smells?
+    device: What speakers did you use to play the music in this test
+
+answers:
+  assertions:
+    - Yes
+    - No
+  demographics:
+    ethnicity:
+      - American Indian, Alaska Native, and/or Indigenous
+      - Arab American, Middle Eastern, or North African
+      - Asian or Asian American
+      - Black or African American
+      - Bi/Multi-racial
+      - Latino/a/x or Spanish Origin
+      - Native Hawaiian or Other Pacific Islander
+      - Southeast Asian
+      - White/European American
+      - Not listed
+      - Prefer not to say
+    gender:
+      - Male
+      - Female
+      - Other
+      - Prefer not to say
+    expertise:
+      hearing:
+        - Professional (musician or industry expert)
+        - Amateur (enthusiast with good musical knowledge)
+        - Non-expert (occasional listener)
+      tasting:
+        - Professional (chef, sommelier or industry expert)
+        - Amateur (enthusiast with good knowledge of food and wine)
+        - Non-expert (occasional consumer)
+    device:
+      - Headphones
+      - Computer/tablet/smartphone speakers
+      - Hi-Fi system
+      - Other

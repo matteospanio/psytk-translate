@@ -1,0 +1,127 @@
+# TASK 1
+
+{% for i in range(1, 6) %}
+l: random_taste_number_{{ i }}
+t: set
+- random 0 3
+
+l: random_taste_label_{{ i }}
+t: set
+- if $random_taste_number_{{ i }} = 0 then sweet
+- if $random_taste_number_{{ i }} = 1 then salty
+- if $random_taste_number_{{ i }} = 2 then bitter
+- if $random_taste_number_{{ i }} = 3 then sour
+
+l: random_taste_label_{{ i }}_trans
+t: set
+{% for taste in questions.first_task.labels %}- if $random_taste_number_1 = {{ taste.id }} then {{ taste.label }}
+{% endfor %}
+
+l: random_number_{{ i }}
+t: set
+{% if i == 1 %}- random 0 24
+{% else %}- calc ( $random_number_{{ i - 1 }} + 1 ) modulo 25
+{% endif %}
+
+l: rng_model_{{ i }}
+t: set
+- random 0 1
+
+l: rng_model_label_{{ i }}
+t: set
+- if $rng_model_{{ i }} = 0 then finetuned
+- if $rng_model_{{ i }} = 1 then base
+
+l: other_model_{{ i }}
+t: set
+- if $rng_model_{{ i }} = 0 then base
+- if $rng_model_{{ i }} = 1 then finetuned
+
+l: task_1_{{ i }}
+t: range
+q: {{ questions.first_task.main}}.<br><br><i>{$random_taste_label_{{ i }}_trans}</i>.<br><br><ol><li><audio controls><source src="https://matteospanio.github.io/assets/audio/{$rng_model_label_{{ i }}}/{$random_taste_label_{{ i }}}/{$random_number_{{ i }}}.wav" type="audio/wav">{{ questions.error.audio_player }}</audio></li><li><audio controls><source src="https://matteospanio.github.io/assets/audio/{$other_model_{{ i }}}/{$random_taste_label_{{ i }}}/{$random_number_{{ i }}}.wav" type="audio/wav">{{ questions.error.audio_player }}</audio></li></ol>
+- {min=0,max=10,start=5,left={{ questions.first_task.song }} 1,right={{ questions.first_task.song }} 2}
+{% endfor %}
+
+# TASK 2
+
+scale: taste
+{% for step in questions.second_task.scale %}- {{ step }}
+{% endfor %}
+
+page: begin
+l: task_2_1
+t: scale taste
+q: {{ questions.second_task.main }}:<br><br><audio controls><source src="https://matteospanio.github.io/assets/audio/finetuned/{$random_taste_label_1}/{$random_number_4}.wav" type="audio/wav">{{ questions.error.audio_player }}</audio>
+{% for option in questions.second_task.adjectives %}- {{ option }}
+{% endfor %}
+page: end
+
+page: begin
+l: task_2_2
+t: scale taste
+q: {{ questions.second_task.main }}:<br><br><audio controls><source src="https://matteospanio.github.io/assets/audio/finetuned/{$random_taste_label_3}/{$random_number_5}.wav" type="audio/wav">{{ questions.error.audio_player }}</audio>
+{% for option in questions.second_task.adjectives %}- {{ option }}
+{% endfor %}
+page: end
+
+page: begin
+l: task_2_3
+t: scale taste
+q: {{ questions.second_task.main }}:<br><br><audio controls><source src="https://matteospanio.github.io/assets/audio/finetuned/{$random_taste_label_4}/{$random_number_1}.wav" type="audio/wav">{{ questions.error.audio_player }}</audio>
+{% for option in questions.second_task.adjectives %}- {{ option }}
+{% endfor %}
+page: end
+
+# Demographics section
+
+page: begin
+
+l: gender
+t: radio
+q: {{ questions.demographics.gender }}
+{% for answer in answers.demographics.gender %}- {{ answer }}
+{% endfor %}
+
+l: ethnicity
+t: radio
+q: {{ questions.demographics.ethnicity }}
+{% for answer in answers.demographics.ethnicity %}- {{ answer }}
+{% endfor %}
+
+l: age
+t: range
+q: {{ questions.demographics.age }}
+- {min=18,max=100}
+
+l: hearing_experience
+t: radio
+q: {{ questions.demographics.expertise.hearing }}
+{% for answer in answers.demographics.expertise.hearing %}- {{ answer }}
+{% endfor %}
+
+l: eating_experience
+t: radio
+q: {{ questions.demographics.expertise.tasting }}
+{% for answer in answers.demographics.expertise.tasting %}- {{ answer }}
+{% endfor %}
+
+l: hearing_impairments
+t: radio
+q: {{ questions.demographics.impairments.hearing }}
+{% for answer in answers.assertions %}- {{ answer }}
+{% endfor %}
+
+l: taste_impairments
+t: radio
+q: {{ questions.demographics.impairments.tasting}}
+{% for answer in answers.assertions %}- {{ answer }}
+{% endfor %}
+
+l: device
+t: radio
+q: {{ questions.demographics.device }}
+{% for answer in answers.demographics.device %}- {{ answer }}
+{% endfor %}
+
+page: end

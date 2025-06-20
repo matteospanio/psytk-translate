@@ -1,0 +1,87 @@
+questions:
+  error:
+    audio_player: Il tuo browser non supporta l'elemento audio.
+
+  first_task:
+    song: brano
+    main: Dopo aver ascoltato i due brani sposta il cursore verso quello che meglio si abbina al testo sottostante. Il cursore indica una preferenza graduale, se posto agli estremi indica una preferenza netta, se posto in mezzo indica che non vi è una preferenza tra il primo o il secondo brano
+    labels:
+      - label: musica dolce
+        id: 0
+      - label: musica salata
+        id: 1
+      - label: musica amara
+        id: 2
+      - label: musica acida
+        id: 3
+
+  second_task:
+    main: Scegli un'intensità indicando quanto riconosci nel brano musicale ascoltato ognuno dei seguenti aggettivi
+    scale:
+      - Per niente
+      - Poco
+      - Abbastanza
+      - Tanto
+      - Tantissimo
+    adjectives:
+      - salato
+      - dolce
+      - acido
+      - amaro
+      - fecilità
+      - tristezza
+      - rabbia
+      - disgusto
+      - paura
+      - sorpresa
+      - caldo
+      - freddo
+
+  demographics:
+    ethnicity: Come ti identifichi?
+    age: Quanti anni hai?
+    gender: In quale genere ti riconosci?
+    expertise:
+      hearing: Qual è il tuo livello di esperienza nell'ascolto musicale?
+      tasting: Qual è il tuo livello di esperienza nel settore enogastronomico?
+    impairments:
+      hearing: Sei a conoscenza di avere eventuali disturbi uditivi?
+      tasting: Sei a conoscenza di avere eventuali disturbi nel riconoscere gusti e/o odori?
+    device: Che altoparlanti hai usato per riprodurre la musica di questo test
+
+answers:
+  assertions:
+    - Sì
+    - No
+  demographics:
+    ethnicity:
+      - Indiano d'America, nativo dell'Alaska e/o indigeno
+      - Arabo-americano, mediorientale o nordafricano
+      - Asiatico o asiatico-americano
+      - Nero o afroamericano
+      - Bi/Multi-razziale
+      - Origine latina/a/x o spagnola
+      - Nativo hawaiano o di altre isole del Pacifico
+      - Sud-est asiatico
+      - Bianco/europeo americano
+      - Non presente in lista
+      - Preferisco non rispondere
+    gender:
+      - Maschio
+      - Femmina
+      - Altro
+      - Preferisco non rispondere
+    expertise:
+      hearing:
+        - Professionista (musicista o esperto del settore)
+        - Amatore (appassionato con una buona conoscenza musicale)
+        - Non esperto (ascoltatore occasionale)
+      tasting:
+        - Professionista (chef, sommelier o esperto del settore)
+        - Amatore (intenditore di cibi o vini)
+        - Non esperto (poca conoscenza del settore)
+    device:
+      - Cuffie
+      - Altoparlanti del computer/tablet/smartphone
+      - Impianto Hi-Fi
+      - Altro
