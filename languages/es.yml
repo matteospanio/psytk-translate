@@ -18,11 +18,11 @@ questions:
   second_task:
     main: Elige una intensidad indicando cuánto reconoces cada uno de los siguientes adjetivos en la pieza musical que escuchaste
     scale:
-      - Not at all
-      - A little
-      - Quite a bit
-      - A lot
-      - Very much
+      - Nada
+      - Poco
+      - Ni mucho ni poco
+      - Mucho
+      - Muchísimo
     adjectives:
       - sabroso
       - dulce
@@ -38,6 +38,9 @@ questions:
       - frío
 
   demographics:
+    country: País
+    nationality: ¿Cuál es tu país de origen?
+    residence: ¿Donde resides actualmente?
     ethnicity: ¿Cómo te identificas?
     age: ¿Cuál es tu edad?
     gender: ¿Cuál es tu género?
@@ -51,8 +54,8 @@ questions:
 
 answers:
   assertions:
-    - Sí
-    - No
+    - "Sí"
+    - "No"
   demographics:
     ethnicity:
       - Indio americano, nativo de Alaska y/o indígena

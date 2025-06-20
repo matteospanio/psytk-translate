@@ -38,6 +38,9 @@ questions:
       - cold
 
   demographics:
+    country: Country
+    nationality: What is your country of origin?
+    residence: In which country do you currently reside?
     ethnicity: How do you identify?
     age: What is your age?
     gender: What is your gender?
@@ -51,8 +54,8 @@ questions:
 
 answers:
   assertions:
-    - Yes
-    - No
+    - "Yes"
+    - "No"
   demographics:
     ethnicity:
       - American Indian, Alaska Native, and/or Indigenous

@@ -1,18 +1,21 @@
+TEMPLATE := templates/quiz.psytk.jinja2
+SRC := main.py
 PYTHON := uv run python
-all: dist/quiz.en.psytk dist/quiz.it.psytk dist/quiz.es.psytk
+OUTDIR := dist
 
-dist:
-	mkdir -p dist
+LANG_FILES := $(wildcard languages/*.yml)
+LANGS := $(basename $(notdir $(LANG_FILES)))
 
-dist/quiz.en.psytk: dist
-	$(PYTHON) main.py -l en -o $@
+OUTFILES := $(foreach lang,$(LANGS),$(OUTDIR)/quiz.$(lang).psytk)
 
-dist/quiz.it.psytk: dist
-	$(PYTHON) main.py -l it -o $@
+all: $(OUTFILES)
 
-dist/quiz.es.psytk: dist
-	$(PYTHON) main.py -l es -o $@
+$(OUTDIR):
+	mkdir -p $@
 
-.PHONY: dist
+$(OUTDIR)/quiz.%.psytk: $(OUTDIR) $(TEMPLATE) $(SRC)
+	$(PYTHON) $(SRC) -l $* -o $@
+
+.PHONY: all clean
 clean:
-	rm -rf dist
+	rm -rf $(OUTDIR)

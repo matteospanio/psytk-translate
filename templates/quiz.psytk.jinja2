@@ -14,7 +14,7 @@ t: set
 
 l: random_taste_label_{{ i }}_trans
 t: set
-{% for taste in questions.first_task.labels %}- if $random_taste_number_1 = {{ taste.id }} then {{ taste.label }}
+{% for taste in questions.first_task.labels %}- if $random_taste_number_{{ i }} = {{ taste.id }} then {{ taste.label }}
 {% endfor %}
 
 l: random_number_{{ i }}
@@ -91,6 +91,16 @@ t: radio
 q: {{ questions.demographics.ethnicity }}
 {% for answer in answers.demographics.ethnicity %}- {{ answer }}
 {% endfor %}
+
+l: origin
+t: textline
+q: {{ questions.demographics.nationality }}
+- {require} {{ questions.demographics.country }}
+
+l: residence
+t: textline
+q: {{ questions.demographics.residence }}
+- {require} {{ questions.demographics.country }}
 
 l: age
 t: range

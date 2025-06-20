@@ -38,6 +38,9 @@ questions:
       - freddo
 
   demographics:
+    country: Nazione
+    nationality: Qual è il tuo paese di origine?
+    residence: In quale paese risiedi attualmente?
     ethnicity: Come ti identifichi?
     age: Quanti anni hai?
     gender: In quale genere ti riconosci?
@@ -51,8 +54,8 @@ questions:
 
 answers:
   assertions:
-    - Sì
-    - No
+    - "Sì"
+    - "No"
   demographics:
     ethnicity:
       - Indiano d'America, nativo dell'Alaska e/o indigeno
